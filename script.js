@@ -5,7 +5,7 @@ const app = new Vue({
     loading: true,
     language: 'en',
     languages: ['en', 'zh-mo', 'zh-cn'],
-    title: 'Metaverse Quotes',
+    title: 'Meet Metaverse',
     loadingText: 'loading...',
     items: [
       {

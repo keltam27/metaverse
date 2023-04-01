@@ -4,8 +4,7 @@ body {
 }
 
 header {
-  background-color: #000;
-  height: 80px;
+  height: 60px;
 }
 
 nav ul {
@@ -280,4 +279,8 @@ div.bg-color:nth-child(6) {
   100% {
     filter: hue-rotate(365deg);
   }
+}
+
+[v-cloak] {
+  display: none;
 }
