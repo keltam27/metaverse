@@ -6,6 +6,9 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -49,19 +52,22 @@
             <div class="grid grid-cols-3 gap-4">
               <div v-for="(quote, index) in quotes" :key="'a'+quote.id"
                 :class="index === currentIndex % quotes.length ? 'block' : 'hidden'" class="bg-gray-900 p-4 shadow-lg">
-                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText : quote.quote }}</h2>
+                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :
+                  quote.quote }}</h2>
                 <p class="mt-4 text-xl lg:text-base text-gray-500">{{ quote.author }}</p>
               </div>
               <div v-for="(quote, index) in quotes" :key="'b'+quote.id"
                 :class="index === (currentIndex +1) % quotes.length ? 'block' : 'hidden'"
                 class="bg-gray-900 p-4 shadow-lg">
-                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText : quote.quote }}</h2>
+                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :
+                  quote.quote }}</h2>
                 <p class="mt-4 text-xl lg:text-base text-gray-500">{{ quote.author }}</p>
               </div>
               <div v-for="(quote, index) in quotes" :key="'c'+quote.id"
                 :class="index === (currentIndex +2) % quotes.length ? 'block' : 'hidden'"
                 class="bg-gray-900 p-4 shadow-lg">
-                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :quote.quote }}</h2>
+                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText
+                  :quote.quote }}</h2>
                 <p class="mt-4 text-xl lg:text-base text-gray-500">{{ quote.author }}</p>
               </div>
             </div>
@@ -92,11 +98,12 @@
         <div class="flex flex-col lg:flex-row gap-12 px-24">
           <div class="flex-1 rounded-lg shadow-lg" style="background-image: url('./img/bg.png');">
             <div class="flex-1 bg-white rounded-lg overflow-hidden m-4 mb-0">
-              <img src="./img/vitrual-concert.jpg" alt="Vitrual Concert Image"
-                class="h-96 lg:h-48 w-full object-cover">
+              <img src="./img/vitrual-concert.jpg" alt="Vitrual Concert Image" class="h-96 lg:h-48 w-full object-cover">
             </div>
             <div class="p-4">
-              <h3 class="font-bold text-5xl lg:text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">{{box1_title}}</h3>
+              <h3
+                class="font-bold text-5xl lg:text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+                {{box1_title}}</h3>
               <p class="text-white text-3xl lg:text-xl my-2 px-2">{{box1_description}}</p>
             </div>
           </div>
@@ -106,33 +113,37 @@
                 class="h-96 lg:h-48 w-full object-cover">
             </div>
             <div class="p-4">
-              <h3 class="font-bold text-5xl lg:text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">{{box2_title}}</h3>
+              <h3
+                class="font-bold text-5xl lg:text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+                {{box2_title}}</h3>
               <p class="text-white text-3xl lg:text-xl my-2 px-2">{{box2_description}}</p>
             </div>
           </div>
           <div class="flex-1 rounded-lg shadow-lg" style="background-image: url('./img/bg.png');">
             <div class="flex-1 bg-white rounded-lg overflow-hidden m-4 mb-0">
-              <img src="./img/vitrual-estate.jpg" alt="Vitrual Estate Image"
-                class="h-96 lg:h-48 w-full object-cover">
+              <img src="./img/vitrual-estate.jpg" alt="Vitrual Estate Image" class="h-96 lg:h-48 w-full object-cover">
             </div>
             <div class="p-4">
-              <h3 class="font-bold text-5xl lg:text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">{{box3_title}}</h3>
+              <h3
+                class="font-bold text-5xl lg:text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+                {{box3_title}}</h3>
               <p class="text-white text-3xl lg:text-xl my-2 px-2">{{box3_description}}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="about bg-gray-900 py-12" id="question">
-        <div class="container mx-auto px-24">
+      <section class="about bg-gray-900 py-12 relative" id="question">
+        <img class="absolute w-full bottom-0 z-0 object-cover" src="./img/3d-ring.png">
+        <div class="container mx-auto px-24 relative">
           <h2
-            class="text-5xl mb-2 drop-shadow-lg font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+            class="z-10 text-5xl mb-2 drop-shadow-lg font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
             {{ question }}</h2>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/uVEALvpoiMQ"
-            title="YouTube video player" frameborder="0"
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/uVEALvpoiMQ" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen class="mx-auto mb-4 w-3/4 lg:w-1/2"></iframe>
-          <p class="text-2xl lg:text-lg text-white text-justify">{{ answer }}</p>
+            allowfullscreen class="mx-auto mb-4 w-3/4 lg:w-1/2 z-10"></iframe>
+          <p class="text-2xl lg:text-lg text-white text-justify lg:mx-60 z-10">{{ answer }}</p>
         </div>
       </section>
     </main>
@@ -146,14 +157,5 @@
   </div>
 </body>
 <script src="script.js"></script>
-<!-- <script>
-  window.addEventListener('resize', function (event) {
-    let color_bg_height = document.querySelector("main>section>h1").clientHeight;
-    console.log(color_bg_height)
-
-    let color_bg = document.querySelector(".bg-color-container");
-    color_bg.style.height = color_bg_height + 526 + "px";
-  }, true);
-</script> -->
 
 </html>
