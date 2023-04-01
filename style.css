@@ -284,3 +284,19 @@ div.bg-color:nth-child(6) {
 [v-cloak] {
   display: none;
 }
+
+#headset {
+  animation: bounce 2s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from {
+      transform: translate3d(0, 0, 0);
+  }
+  to {
+      transform: translate3d(0, 20px, 0);
+  }
+}
