@@ -20,7 +20,7 @@ const app = new Vue({
     loading: true,
     language: 'en',
     languages: ['en', 'zh-mo', 'zh-cn'],
-    lang_l: { 'en': 'English', 'zh-mo': 'Traditional Chinese', 'zh-cn': 'Simplified Chinese' },
+    lang_l: { 'en': 'English', 'zh-mo': 'Chinese (TW)', 'zh-cn': 'Chinese (CN)' },
     loadingText: 'loading...',
     items: [
       {
@@ -100,7 +100,7 @@ const app = new Vue({
     setLanguage(lang) {
       // Set the current language
       this.language = lang;
-      if (lang === 'en') this.lang_l = { 'en': 'English', 'zh-mo': 'Traditional Chinese', 'zh-cn': 'Simplified Chinese' };
+      if (lang === 'en') this.lang_l = { 'en': 'English', 'zh-mo': 'Chinese (TW)', 'zh-cn': 'Chinese (CN)' };
       else if (lang === 'zh-mo') this.lang_l = { 'en': '英文', 'zh-mo': '繁體中文', 'zh-cn': '簡體中文' };
       else if (lang === 'zh-cn') this.lang_l = { 'en': '英文', 'zh-mo': '繁体中文', 'zh-cn': '简体中文' };
       //this.title = this.text[lang].title;
