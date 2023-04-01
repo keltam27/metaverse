@@ -20,57 +20,65 @@
 
   <div id="app" v-cloak>
     <header class="z-10 relative py-2">
-      <div class="container mx-auto px-6 py-3 md:flex justify-between items-center">
-        <div class="flex items-center">
+      <div class="container mx-auto px-12 py-3 md:flex items-center">
+        <div class="container mx-auto flex justify-between items-center">
           <h1 class="text-2xl font-bold text-gray-200">{{ title }}</h1>
-          <nav class="md:flex md:ml-4 md:ml-4 absolute" style="right:7%">
+          <div class="md:flex md:ml-4 md:ml-4 inline">
             <ul class="list-none md:flex md:items-center">
               <li v-for="lang in languages" :key="lang" @click="setLanguage(lang)"
                 :class="{ 'font-bold text-blue-500': lang === language }"
                 class="cursor-pointer text-gray-500 hover:text-gray-200 transition-colors duration-300 ease-in-out md:mx-4">
-                {{ (lang==="en") ? "English" : (lang==="zh-mo") ? "Traditional Chinese" : (lang==="zh-cn") ? "Simplified Chinese" : "" }}</li>
+                {{ lang_l[lang] }}</li>
             </ul>
-          </nav>
+          </div>
         </div>
       </div>
     </header>
 
     <main>
       <div class="flex px-4">
-        <div class="px-6 w-2/3">
-          <section class="z-2 relative">
-            <h1
-              class="mt-12 mx-auto w-2/3 drop-shadow-lg lg:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text hover:animate-none">
-              {{ title_description }}</h1>
+        <div class="flex flex-wrap w-full px-6">
+
+          <section class="w-full lg:w-2/3 order-1 lg:order-1 z-2 relative mt-12">
+            <h1 v-for="(title, index) in title_description.split('\n')"
+              class="mx-auto w-3/4 drop-shadow-lg lg:text-7xl text-5xl font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
+              {{title}}</h1>
           </section>
-          <section v-if="loading" class="container mx-auto py-20 flex justify-center items-center z-2 relative">
+
+          <section v-if="loading" class="w-full md:w-2/3 order-3 lg:order-2 container mx-auto py-20 flex justify-center items-center z-2 relative">
             <p class="text-lg text-gray-600">{{ loadingText }}</p>
           </section>
-          <!-- <section v-else class="container mx-auto py-20">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div v-for="quote in quotes" :key="quote.id"
-            class="bg-white border border-gray-200 p-6 rounded-2xl shadow-lg">
-            <h2 class="text-lg font-medium text-gray-900 tracking-tight">{{ quote.author }}</h2>
-            <p class="mt-4 text-base text-gray-500">{{ quote.quote }}</p>
-          </div>
-        </div>
-      </section> -->
-          <section v-else class="container mx-auto py-20 z-2 relative max-w-4xl">
-            <div v-for="(quote, index) in quotes" :key="quote.id" :class="index === currentIndex ? 'block' : 'hidden'"
-              class="bg-white border border-gray-200 p-6 rounded-2xl shadow-lg">
-              <h2 class="text-lg font-medium text-gray-900 tracking-tight">{{ quote.quote }}</h2>
-              <p class="mt-4 text-base text-gray-500">{{ quote.author }}</p>
+          <section v-else class="w-full lg:w-2/3 order-3 lg:order-2 container py-20 z-2 relative max-w-4xl">
+            <div class="grid grid-cols-3 gap-4">
+              <div v-for="(quote, index) in quotes" :key="'a'+quote.id"
+                :class="index === currentIndex % quotes.length ? 'block' : 'hidden'" class="bg-gray-900 p-4 shadow-lg">
+                <h2 class="text-lg font-medium text-white tracking-tight">{{ quote.quote }}</h2>
+                <p class="mt-4 text-base text-gray-500">{{ quote.author }}</p>
+              </div>
+              <div v-for="(quote, index) in quotes" :key="'b'+quote.id"
+                :class="index === (currentIndex +1) % quotes.length ? 'block' : 'hidden'"
+                class="bg-gray-900 p-4 shadow-lg">
+                <h2 class="text-lg font-medium text-white tracking-tight">{{ quote.quote }}</h2>
+                <p class="mt-4 text-base text-gray-500">{{ quote.author }}</p>
+              </div>
+              <div v-for="(quote, index) in quotes" :key="'c'+quote.id"
+                :class="index === (currentIndex +2) % quotes.length ? 'block' : 'hidden'"
+                class="bg-gray-900 p-4 shadow-lg">
+                <h2 class="text-lg font-medium text-white tracking-tight">{{ quote.quote }}</h2>
+                <p class="mt-4 text-base text-gray-500">{{ quote.author }}</p>
+              </div>
             </div>
             <div class="flex justify-center mt-8">
               <button @click="showNextQuote"
-                class="bg-blue-500 hover:bg-blue-600 text-gray-700 font-semibold py-2 px-4 rounded-full">
-                {{ currentIndex === (quotes.length - 1) ? 'Restart' : 'Next Quote' }}
+                class="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-blue-500 hover:to-purple-500 transition ease-in-out duration-300 text-gray-700 font-semibold py-2 px-4 rounded-full">
+                Next Quotes
               </button>
             </div>
           </section>
-        </div>
-        <div id="headset" class="w-1/3 z-2 relative grid content-center animate-bounce animate-infinite animate-duration-[9000ms] animate-ease-in animate-reverse animate-fill-both">
-          <img src="./img/headset-tr.png">
+
+          <div id="headset" class="w-full lg:w-1/3 order-2 lg:order-3 z-2 lg:absolute top-1/4 right-0 grid content-center mx-12">
+            <img class="mx-auto" src="./img/headset-tr.png">
+          </div>
         </div>
       </div>
 
@@ -79,21 +87,21 @@
         <div class="z-10 mx-4 mt-10 mb-5">
           <img style="position: relative; left: 0;" class="w-96" src="./img/person-earth-tr.png">
         </div>
-        <div class="container mx-auto">
+        <div class="container mx-auto px-12">
           <h1 class="text-white text-4xl font-light mb-4 font-bold">{{ welcome }}</h1>
-          <p class="text-white text-lg mb-6">{{ welcome_description }}</p>
+          <p class="text-white text-lg mb-6" style="white-space: pre">{{ welcome_description }}</p>
           <a href="#question" class="bg-blue-500 hover:bg-blue-600 py-3 px-6 text-white uppercase font-bold rounded">Get
             Started</a>
         </div>
       </section>
 
       <section class="about bg-gray-900 space-y-8" id="question">
-        <div class="container mx-auto">
+        <div class="container mx-auto px-12">
           <h2
             class="text-4xl drop-shadow-lg font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
             {{ question }}</h2>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/uVEALvpoiMQ" title="YouTube video player"
-            frameborder="0"
+          <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uVEALvpoiMQ"
+            title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen class="mx-auto mb-4"></iframe>
           <p class="text-lg text-white">{{ answer }}</p>
@@ -101,16 +109,16 @@
       </section>
     </main>
 
-    <footer class="bg-gray-900 py-4 text-md">
+    <footer class="bg-gray-900 py-4 px-12 border-t-2 border-gray-800" style="font-size: 1rem;">
       <div class="container mx-auto flex justify-between items-center">
-        <p class="text-white">&copy; 2023 KKT</p>
+        <p class="text-white">Meet Metaverse</p>
         <p class="text-white">Powered by KKT</p>
       </div>
     </footer>
   </div>
 </body>
 <script src="script.js"></script>
-<script>
+<!-- <script>
   window.addEventListener('resize', function (event) {
     let color_bg_height = document.querySelector("main>section>h1").clientHeight;
     console.log(color_bg_height)
@@ -118,6 +126,6 @@
     let color_bg = document.querySelector(".bg-color-container");
     color_bg.style.height = color_bg_height + 526 + "px";
   }, true);
-</script>
+</script> -->
 
 </html>
