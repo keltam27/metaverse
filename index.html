@@ -18,8 +18,6 @@
     <div class="bg-color"></div>
   </div>
 
-
-
   <div id="app" class="bg-gray-100">
     <header class="bg-white shadow-md sticky top-0 z-10">
       <div class="container mx-auto px-6 py-3 md:flex justify-between items-center">
@@ -43,12 +41,12 @@
     </header>
 
     <main>
-      <section>
+      <section class="k-index-2">
         <h1
           class="mt-24 mx-auto drop-shadow-lg w-2/3 text-7xl font-bold text-center bg-gradient-to-r from-blue-500 to-green-500 text-transparent bg-clip-text hover:animate-none">
           Examine the possibilities of what the metaverse may hold ahead.</h1>
       </section>
-      <section v-if="loading" class="container mx-auto py-20 flex justify-center items-center">
+      <section v-if="loading" class="container mx-auto py-20 flex justify-center items-center k-index-2">
         <p class="text-lg text-gray-600">{{ loadingText }}</p>
       </section>
       <!-- <section v-else class="container mx-auto py-20">
@@ -60,7 +58,7 @@
           </div>
         </div>
       </section> -->
-      <section v-else class="container mx-auto py-20">
+      <section v-else class="container mx-auto py-20 k-index-2">
         <div v-for="(quote, index) in quotes" :key="quote.id" :class="index === currentIndex ? 'block' : 'hidden'"
           class="bg-white border border-gray-200 p-6 rounded-2xl shadow-lg">
           <h2 class="text-lg font-medium text-gray-900 tracking-tight">{{ quote.quote }}</h2>
@@ -76,7 +74,7 @@
 
 
 
-      <section class="hero bg-gray-800 py-20">
+      <section class="hero bg-gray-800 py-20 k-index-2">
         <div class="container mx-auto">
           <h1 class="text-white text-4xl font-light mb-4">Welcome to my Metaverse</h1>
           <p class="text-white text-lg mb-6">Explore the endless possibilities of the future.</p>
@@ -89,8 +87,13 @@
         <div class="container mx-auto">
           <h2 class="text-4xl font-bold mb-8">Features</h2>
           <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 list-none">
-            <li class="flex-1 mb-4"> <i class="fas fa-globe text-blue-500 mr-3"></i> <span>Global
-                Reach</span> </li>
+            <li class="flex-1 mb-4"> <i class="fas fa-globe text-blue-500 mr-3"></i> <span>Welcome to the metaverse, a
+                virtual world where imagination meets reality. This digital realm allows users to escape everyday life
+                and explore new horizons through immersive experiences. From gaming to socializing, the metaverse offers
+                endless opportunities to connect with others and discover new realms of possibility. With cutting-edge
+                technology and limitless creativity, the metaverse opens a new chapter in the evolution of human
+                interaction. Join us on this exciting journey into the unknown and discover the endless possibilities of
+                the metaverse.</span> </li>
             <li class="flex py-4 mb-4"> <i class="fas fa-rocket text-blue-500 mr-3"></i> <span>Fast and
                 Secure</span> </li>
             <li class="flex py-4 mb-4"> <i class="fas fa-cogs text-blue-500 mr-3"></i>
