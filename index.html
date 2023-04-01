@@ -81,7 +81,7 @@
       </div>
 
 
-      <section class="hero bg-gradient-to-r from-purple-500 to-blue-500 py-10 z-2 relative">
+      <section class="hero bg-gradient-to-r from-purple-500 to-blue-500 pt-10 pb-20 z-2 relative">
         <div class="z-10 mx-4 mt-10 mb-5">
           <img style="position: relative; left: 0;" class="w-96" src="./img/person-earth-tr.png">
         </div>
@@ -92,47 +92,47 @@
         <div class="flex flex-col md:flex-row gap-12 px-24">
           <div class="flex-1 rounded-lg shadow-lg" style="background-image: url('./img/bg.png');">
             <div class="flex-1 bg-white rounded-lg overflow-hidden m-4 mb-0">
-              <img src="https://dummyimage.com/500x500/cccccc/000000" alt="Example 1 Image"
+              <img src="./img/vitrual-concert.jpg" alt="Vitrual Concert Image"
                 class="h-48 w-full object-cover">
             </div>
             <div class="p-4">
-              <h3 class="font-bold text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">Virtual Concerts</h3>
-              <p class="text-white text-xl mb-2">Experience concerts like never before, attend from anywhere in the world and
-                see
-                your favorite artists perform in the metaverse.</p>
+              <h3 class="font-bold text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">{{box1_title}}</h3>
+              <p class="text-white text-xl mb-2">{{box1_description}}</p>
             </div>
           </div>
-          <div class="flex-1 bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://dummyimage.com/500x300/cccccc/000000" alt="Example 2 Image"
-              class="h-48 w-full object-cover">
+          <div class="flex-1 rounded-lg shadow-lg" style="background-image: url('./img/bg.png');">
+            <div class="flex-1 bg-white rounded-lg overflow-hidden m-4 mb-0">
+              <img src="./img/vitrual-training.jpg" alt="Vitrual Training Image"
+                class="h-48 w-full object-cover">
+            </div>
             <div class="p-4">
-              <h3 class="font-semibold text-lg mb-2">Virtual Reality Training</h3>
-              <p class="text-gray-700">Use VR technology to train employees or students in immersive environments that
-                simulate real-life situations.</p>
+              <h3 class="font-bold text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">{{box2_title}}</h3>
+              <p class="text-white text-xl mb-2">{{box2_description}}</p>
             </div>
           </div>
-          <div class="flex-1 bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://dummyimage.com/500x300/cccccc/000000" alt="Example 3 Image"
-              class="h-48 w-full object-cover">
+          <div class="flex-1 rounded-lg shadow-lg" style="background-image: url('./img/bg.png');">
+            <div class="flex-1 bg-white rounded-lg overflow-hidden m-4 mb-0">
+              <img src="./img/vitrual-estate.jpg" alt="Vitrual Estate Image"
+                class="h-48 w-full object-cover">
+            </div>
             <div class="p-4">
-              <h3 class="font-semibold text-lg mb-2">Virtual Real Estate</h3>
-              <p class="text-gray-700">Buy, sell, rent or explore properties in the metaverse. Design your dream house
-                or office and experience it virtually.</p>
+              <h3 class="font-bold text-2xl mb-2 drop-shadow-lg bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">{{box3_title}}</h3>
+              <p class="text-white text-xl mb-2">{{box3_description}}</p>
             </div>
           </div>
         </div>
       </section>
 
       <section class="about bg-gray-900 space-y-8" id="question">
-        <div class="container mx-auto px-12">
+        <div class="container mx-auto px-24">
           <h2
             class="text-4xl drop-shadow-lg font-bold text-center bg-gradient-to-r from-purple-500 to-blue-500 text-transparent bg-clip-text">
             {{ question }}</h2>
           <iframe width="560" height="315" src="https://www.youtube.com/embed/uVEALvpoiMQ"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen class="mx-auto mb-4"></iframe>
-          <p class="text-lg text-white">{{ answer }}</p>
+            allowfullscreen class="mx-auto mb-4 w-72 lg:w-1/2"></iframe>
+          <p class="text-lg text-white text-justify">{{ answer }}</p>
         </div>
       </section>
     </main>
