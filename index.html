@@ -49,24 +49,24 @@
           </section>
 
           <section class="w-full lg:w-2/3 order-3 lg:order-2 container pt-20 z-2 relative max-w-4xl">
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid lg:grid-cols-3 grid-rows-3 gap-4 mx-12">
               <div v-for="(quote, index) in quotes" :key="'a'+quote.id"
                 :class="index === currentIndex % quotes.length ? 'block' : 'hidden'" class="bg-gray-900 p-4 shadow-lg">
-                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :
+                <h2 class="text-4xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :
                   quote.quote }}</h2>
                 <p class="mt-4 text-xl lg:text-base text-gray-500">{{ quote.author }}</p>
               </div>
               <div v-for="(quote, index) in quotes" :key="'b'+quote.id"
                 :class="index === (currentIndex +1) % quotes.length ? 'block' : 'hidden'"
                 class="bg-gray-900 p-4 shadow-lg">
-                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :
+                <h2 class="text-4xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText :
                   quote.quote }}</h2>
                 <p class="mt-4 text-xl lg:text-base text-gray-500">{{ quote.author }}</p>
               </div>
               <div v-for="(quote, index) in quotes" :key="'c'+quote.id"
                 :class="index === (currentIndex +2) % quotes.length ? 'block' : 'hidden'"
                 class="bg-gray-900 p-4 shadow-lg">
-                <h2 class="text-3xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText
+                <h2 class="text-4xl lg:text-lg font-medium text-white tracking-tight">{{ loading ? loadingText
                   :quote.quote }}</h2>
                 <p class="mt-4 text-xl lg:text-base text-gray-500">{{ quote.author }}</p>
               </div>
@@ -157,5 +157,14 @@
   </div>
 </body>
 <script src="script.js"></script>
+<script>
+  window.addEventListener('resize', function (event) {
+    let color_bg_height = document.querySelector("main>section>h1").clientHeight;
+    console.log(color_bg_height)
+
+    let color_bg = document.querySelector(".bg-color-container");
+    color_bg.style.height = color_bg_height + 526 + "px";
+  }, true);
+</script>
 
 </html>
