@@ -23,11 +23,11 @@
 
   <div id="app" v-cloak>
     <header class="z-10 relative py-2">
-      <div class="container mx-auto px-12 py-3 flex items-center">
+      <div class="container mx-auto px-12 py-3 lg:flex items-center">
         <div class="container mx-auto flex justify-between items-center">
           <h1 class="text-3xl font-bold text-gray-200">{{ title }}</h1>
-          <div class="flex ml-4 ml-4 inline text-2xl">
-            <ul class="list-none flex items-center">
+          <div class="lg:flex lg:ml-4 lg:ml-4 inline text-2xl">
+            <ul class="list-none lg:flex lg:items-center">
               <li v-for="lang in languages" :key="lang" @click="setLanguage(lang)"
                 :class="{ 'font-bold text-blue-500': lang === language }"
                 class="cursor-pointer text-gray-500 hover:text-gray-200 transition-colors duration-300 ease-in-out md:mx-4">
