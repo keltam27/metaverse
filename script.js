@@ -141,6 +141,9 @@ const app = new Vue({
       } else {
         this.currentIndex++;
       }
+    },
+    test(){
+      console.log("debug");
     }
   }, computed: {
     currentQuote() {
